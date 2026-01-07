@@ -12,7 +12,7 @@ import { Search } from 'lucide-react';
 function AccessoryCard({ accessory }: { accessory: Accessory }) {
   return (
     <Card className="flex flex-col overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
-      <div className="relative aspect-square">
+      <div className="relative aspect-w-1 aspect-h-1">
         <Image
           src={accessory.image.src}
           alt={accessory.image.alt}
