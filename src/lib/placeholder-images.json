@@ -1,3 +1,106 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "A modern tech workspace with tools and devices.",
+      "imageUrl": "https://images.unsplash.com/photo-1722159475056-81b46e45f950?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZWNoJTIwd29ya3NwYWNlfGVufDB8fHx8MTc2NzgxMDI4Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tech workspace"
+    },
+    {
+      "id": "gallery-1",
+      "description": "Cracked phone screen before repair.",
+      "imageUrl": "https://images.unsplash.com/photo-1719744755528-797de46cbbff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjcmFja2VkJTIwc2NyZWVufGVufDB8fHx8MTc2NzgyMjE2NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cracked screen"
+    },
+    {
+      "id": "gallery-2",
+      "description": "Repaired phone screen looking like new.",
+      "imageUrl": "https://images.unsplash.com/photo-1766171359875-73155eff7f66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyZXBhaXJlZCUyMHNjcmVlbnxlbnwwfHx8fDE3Njc4MjIxNjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "repaired screen"
+    },
+    {
+      "id": "gallery-3",
+      "description": "Inside of a PC during an upgrade.",
+      "imageUrl": "https://images.unsplash.com/photo-1659297396001-fa8d15dcad1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y29tcHV0ZXIlMjBpbnRlcm5hbHN8ZW58MHx8fHwxNzY3Nzc3OTU3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "computer internals"
+    },
+    {
+      "id": "gallery-4",
+      "description": "Organized computer cables after management.",
+      "imageUrl": "https://images.unsplash.com/photo-1694253987617-ae47ddace39b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjYWJsZSUyMG1hbmFnZW1lbnR8ZW58MHx8fHwxNzY3ODIyMTY0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cable management"
+    },
+    {
+      "id": "gallery-5",
+      "description": "Technician replacing a laptop battery.",
+      "imageUrl": "https://images.unsplash.com/photo-1721332154191-ba5f1534266e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsYXB0b3AlMjByZXBhaXJ8ZW58MHx8fHwxNzY3ODA4MTAwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "laptop repair"
+    },
+    {
+      "id": "gallery-6",
+      "description": "Close-up of a micro-soldering repair on a motherboard.",
+      "imageUrl": "https://images.unsplash.com/photo-1705579609431-a07e6c4b149b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtaWNybyUyMHNvbGRlcmluZ3xlbnwwfHx8fDE3Njc4MjIxNjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "micro soldering"
+    },
+    {
+      "id": "gallery-7",
+      "description": "A variety of phone cases on display.",
+      "imageUrl": "https://images.unsplash.com/photo-1623393945964-8f5d573f9358?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwaG9uZSUyMGNhc2VzfGVufDB8fHx8MTc2NzgyMjE2NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "phone cases"
+    },
+    {
+      "id": "gallery-8",
+      "description": "Gaming PC setup with RGB lighting.",
+      "imageUrl": "https://images.unsplash.com/photo-1622013378145-e8d89cfbd990?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxnYW1pbmclMjBwY3xlbnwwfHx8fDE3Njc4MjIxNjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gaming pc"
+    },
+    {
+      "id": "accessory-phone-1",
+      "description": "A durable phone case.",
+      "imageUrl": "https://images.unsplash.com/photo-1623393945964-8f5d573f9358?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwaG9uZSUyMGNhc2V8ZW58MHx8fHwxNzY3NzQxOTM1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "phone case"
+    },
+    {
+      "id": "accessory-phone-2",
+      "description": "A fast-charging wall adapter.",
+      "imageUrl": "https://images.unsplash.com/photo-1557767382-97b28f5488e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2hhcmdlcnxlbnwwfHx8fDE3Njc4MjIxNjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "charger"
+    },
+    {
+      "id": "accessory-phone-3",
+      "description": "Wireless earbuds.",
+      "imageUrl": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3aXJlbGVzcyUyMGVhcmJ1ZHN8ZW58MHx8fHwxNzY3ODA3MTU2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wireless earbuds"
+    },
+    {
+      "id": "accessory-pc-1",
+      "description": "An ergonomic wireless mouse.",
+      "imageUrl": "https://images.unsplash.com/photo-1707592691247-5c3a1c7ba0e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3aXJlbGVzcyUyMG1vdXNlfGVufDB8fHx8MTc2NzcyODQyMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wireless mouse"
+    },
+    {
+      "id": "accessory-pc-2",
+      "description": "A mechanical keyboard with RGB lighting.",
+      "imageUrl": "https://images.unsplash.com/photo-1606075014584-5ccf554b50db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtZWNoYW5pY2FsJTIwa2V5Ym9hcmR8ZW58MHx8fHwxNzY3ODExMjY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mechanical keyboard"
+    },
+    {
+      "id": "accessory-pc-3",
+      "description": "A high-resolution webcam.",
+      "imageUrl": "https://images.unsplash.com/photo-1622750342107-4b60e2704157?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3ZWJjYW18ZW58MHx8fHwxNzY3ODE3MzU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "webcam"
+    },
+    {
+      "id": "accessory-new-1",
+      "description": "A portable power bank.",
+      "imageUrl": "https://images.unsplash.com/photo-1614399113305-a127bb2ca893?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwb3dlciUyMGJhbmt8ZW58MHx8fHwxNzY3ODIyMTY1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "power bank"
+    },
+    {
+      "id": "accessory-new-2",
+      "description": "A premium screen protector.",
+      "imageUrl": "https://images.unsplash.com/photo-1714058948949-4414c2007759?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzY3JlZW4lMjBwcm90ZWN0b3J8ZW58MHx8fHwxNzY3ODAzMzg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "screen protector"
+    }
+  ]
 }
