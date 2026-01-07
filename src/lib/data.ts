@@ -72,8 +72,7 @@ export const galleryImages: GalleryImage[] = [
 export const accessories: Accessory[] = [
   {
     id: 'acc1',
-    name: 'Funda Protectora
-',
+    name: 'Funda Protectora',
     description: 'Funda de alta resistencia para proteger tu celular de caídas y golpes.',
     price: '$15.00',
     category: 'phone',
