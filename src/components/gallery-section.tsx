@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { galleryImages } from '@/lib/data';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import { Button } from './ui/button';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -65,6 +65,7 @@ export default function GallerySection() {
 
         <Dialog open={selectedImageIndex !== null} onOpenChange={(isOpen) => !isOpen && closeLightbox()}>
           <DialogContent className="max-w-4xl w-full p-2 bg-transparent border-0 shadow-none">
+             <DialogTitle className="sr-only">Galería de imágenes</DialogTitle>
             {currentImage && (
               <div className="relative">
                 <Image

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, Wrench } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle } from '@/components/ui/sheet';
 import { navLinks } from '@/lib/data';
 import { cn } from '@/lib/utils';
 
@@ -42,6 +42,7 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="pr-0">
+              <SheetTitle className="sr-only">Menú de navegación móvil</SheetTitle>
               <Link href="/" className="mr-6 flex items-center space-x-2 mb-6">
                 <Wrench className="h-6 w-6 text-primary" />
                 <span className="font-bold">TechFix Solutions</span>
