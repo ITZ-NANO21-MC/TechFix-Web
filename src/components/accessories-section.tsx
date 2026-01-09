@@ -43,7 +43,10 @@ export default function AccessoriesSection() {
     return accessories
       .filter((acc) => {
         if (activeTab === 'all') return true;
-        return acc.category === activeTab;
+        if (activeTab === 'new') return acc.category === 'new';
+        if (activeTab === 'phone') return acc.category === 'phone';
+        if (activeTab === 'pc') return acc.category === 'pc';
+        return false;
       })
       .filter((acc) => acc.name.toLowerCase().includes(searchTerm.toLowerCase()));
   }, [searchTerm, activeTab]);
@@ -65,7 +68,7 @@ export default function AccessoriesSection() {
           </p>
         </div>
 
-        <Tabs defaultValue="all" onValueChange={setActiveTab} className="w-full">
+        <Tabs defaultValue="all" onValueChange={setActiveTab} value={activeTab} className="w-full">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
             <TabsList>
               {tabs.map((tab) => (
@@ -91,36 +94,6 @@ export default function AccessoriesSection() {
               ))}
             </div>
             {filteredAccessories.length === 0 && (
-                <p className='text-center text-muted-foreground py-16'>No se encontraron accesorios.</p>
-            )}
-          </TabsContent>
-          <TabsContent value="new">
-             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {filteredAccessories.map((accessory) => (
-                <AccessoryCard key={accessory.id} accessory={accessory} />
-              ))}
-            </div>
-             {filteredAccessories.length === 0 && (
-                <p className='text-center text-muted-foreground py-16'>No se encontraron accesorios.</p>
-            )}
-          </TabsContent>
-          <TabsContent value="phone">
-             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {filteredAccessories.map((accessory) => (
-                <AccessoryCard key={accessory.id} accessory={accessory} />
-              ))}
-            </div>
-             {filteredAccessories.length === 0 && (
-                <p className='text-center text-muted-foreground py-16'>No se encontraron accesorios.</p>
-            )}
-          </TabsContent>
-          <TabsContent value="pc">
-             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {filteredAccessories.map((accessory) => (
-                <AccessoryCard key={accessory.id} accessory={accessory} />
-              ))}
-            </div>
-             {filteredAccessories.length === 0 && (
                 <p className='text-center text-muted-foreground py-16'>No se encontraron accesorios.</p>
             )}
           </TabsContent>
