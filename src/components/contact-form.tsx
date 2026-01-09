@@ -1,44 +1,67 @@
 'use client';
 
-import { useActionState, useEffect, useRef } from 'react';
-import { useFormStatus } from 'react-dom';
-import { submitContactForm, type FormState } from '@/app/actions';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 
-function SubmitButton() {
-  const { pending } = useFormStatus();
-  return (
-    <Button type="submit" disabled={pending} className="w-full">
-      {pending ? 'Enviando...' : 'Enviar Mensaje'}
-    </Button>
-  );
-}
-
 export default function ContactForm() {
-  const initialState: FormState = { message: '', success: false };
-  const [state, formAction] = useActionState(submitContactForm, initialState);
-  const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    if (state.message) {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!formRef.current) return;
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
       toast({
-        title: state.success ? 'Éxito' : 'Error',
-        description: state.message,
-        variant: state.success ? 'default' : 'destructive',
+        title: 'Error de Configuración',
+        description: 'El servicio de correo no está configurado. Por favor, contacta al administrador.',
+        variant: 'destructive',
       });
-      if (state.success) {
-        formRef.current?.reset();
-      }
+      return;
     }
-  }, [state, toast]);
+    
+    setIsSubmitting(true);
+
+    emailjs
+      .sendForm(serviceId, templateId, formRef.current, {
+        publicKey: publicKey,
+      })
+      .then(
+        () => {
+          toast({
+            title: 'Éxito',
+            description: '¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.',
+            variant: 'default',
+          });
+          formRef.current?.reset();
+        },
+        (error) => {
+          toast({
+            title: 'Error',
+            description: 'Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo.',
+            variant: 'destructive',
+          });
+          console.error('FAILED...', error.text);
+        },
+      )
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  };
 
   return (
-    <form ref={formRef} action={formAction} className="space-y-4">
+    <form ref={formRef} onSubmit={sendEmail} className="space-y-4">
       <div>
         <Label htmlFor="name">Nombre</Label>
         <Input type="text" id="name" name="name" required />
@@ -55,7 +78,9 @@ export default function ContactForm() {
         <Label htmlFor="message">Mensaje</Label>
         <Textarea id="message" name="message" rows={5} required />
       </div>
-      <SubmitButton />
+      <Button type="submit" disabled={isSubmitting} className="w-full">
+        {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
+      </Button>
     </form>
   );
 }
