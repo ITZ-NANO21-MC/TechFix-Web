@@ -7,13 +7,13 @@ export default function HeroSection() {
   const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-background');
 
   return (
-    <section className="relative w-full h-[70vh] min-h-[550px] flex items-center justify-center text-white">
+    <section className="relative w-full h-[70vh] lg:h-[60vh] min-h-[550px] flex items-center justify-center text-white">
       {heroImage && (
         <Image
           src={heroImage.imageUrl}
           alt={heroImage.description}
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
           data-ai-hint={heroImage.imageHint}
         />
