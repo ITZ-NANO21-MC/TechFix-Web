@@ -30,8 +30,9 @@ export default function HeroSection() {
             <Image
               src={heroImage.imageUrl}
               alt="Taller de reparación de tecnología"
-              fill
-              className="object-cover"
+              width={600}
+              height={450}
+              className="object-cover w-full h-full rounded-lg"
               priority
               sizes="(max-width: 768px) 100vw, 50vw"
               data-ai-hint={heroImage.imageHint}

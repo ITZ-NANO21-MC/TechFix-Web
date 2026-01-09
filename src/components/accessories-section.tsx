@@ -43,10 +43,7 @@ export default function AccessoriesSection() {
     return accessories
       .filter((acc) => {
         if (activeTab === 'all') return true;
-        if (activeTab === 'new') return acc.category === 'new';
-        if (activeTab === 'phone') return acc.category === 'phone';
-        if (activeTab === 'pc') return acc.category === 'pc';
-        return false;
+        return acc.category === activeTab;
       })
       .filter((acc) => acc.name.toLowerCase().includes(searchTerm.toLowerCase()));
   }, [searchTerm, activeTab]);
