@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from './ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -6,18 +5,16 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 export default function HeroSection() {
   const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-background');
 
+  const heroStyle = heroImage
+    ? { backgroundImage: `url(${heroImage.imageUrl})` }
+    : {};
+
   return (
-    <section className="relative w-full h-[70vh] lg:h-[60vh] min-h-[550px] flex items-center justify-center text-white">
-      {heroImage && (
-        <Image
-          src={heroImage.imageUrl}
-          alt={heroImage.description}
-          fill
-          className="object-cover object-center"
-          priority
-          data-ai-hint={heroImage.imageHint}
-        />
-      )}
+    <section
+      className="relative w-full h-[70vh] min-h-[550px] flex items-center justify-center text-white bg-cover bg-center bg-no-repeat"
+      style={heroStyle}
+      data-ai-hint={heroImage?.imageHint}
+    >
       <div className="absolute inset-0 bg-black/60" />
       <div className="relative z-10 text-center px-4">
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tighter mb-4 text-shadow-lg">
