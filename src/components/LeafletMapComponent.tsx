@@ -1,19 +1,21 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import type { Icon as LeafletIcon } from 'leaflet';
 
 export default function LeafletMapComponent() {
   const apiKey = process.env.NEXT_PUBLIC_GEOAPIFY_API_KEY;
   const position: [number, number] = [34.052235, -118.243683];
+  const [icon, setIcon] = useState<LeafletIcon | null>(null);
 
   useEffect(() => {
     // Configurar íconos después de montar
     if (typeof window !== 'undefined') {
       // Crear ícono personalizado explícitamente
-      const icon = L.icon({
+      const customIcon = L.icon({
         iconUrl: '/images/leaflet/marker-icon.png',
         iconRetinaUrl: '/images/leaflet/marker-icon-2x.png',
         shadowUrl: '/images/leaflet/marker-shadow.png',
@@ -22,9 +24,7 @@ export default function LeafletMapComponent() {
         popupAnchor: [1, -34],
         shadowSize: [41, 41]
       });
-      
-      // Hacer disponible globalmente
-      (window as any).customLeafletIcon = icon;
+      setIcon(customIcon);
     }
   }, []);
 
@@ -49,14 +49,16 @@ export default function LeafletMapComponent() {
         attribution='Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a>'
         url={geoapifyTileUrl}
       />
-      <Marker 
-        position={position}
-        icon={(window as any).customLeafletIcon}
-      >
-        <Popup>
-          TechFix Solutions <br /> Calle Falsa 123, Springfield.
-        </Popup>
-      </Marker>
+      {icon && (
+        <Marker 
+          position={position}
+          icon={icon}
+        >
+          <Popup>
+            TechFix Solutions <br /> Calle Falsa 123, Springfield.
+          </Popup>
+        </Marker>
+      )}
     </MapContainer>
   );
 }
