@@ -19,7 +19,7 @@ export default function Map() {
 
   useEffect(() => {
     // Este código se ejecuta solo en el cliente, después de que el componente se monta.
-    // Esto asegura que L.Marker.prototype está disponible.
+    // Esto asegura que L.Marker.prototype está disponible y previene el error "iconUrl not set".
     delete (L.Icon.Default.prototype as any)._getIconUrl;
 
     L.Icon.Default.mergeOptions({
