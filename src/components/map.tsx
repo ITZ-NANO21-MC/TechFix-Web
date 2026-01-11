@@ -1,29 +1,31 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import type { Map as LeafletMap } from 'leaflet';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 
-// SOLUCIÓN: Configuración GLOBAL fuera del componente para que no se re-declare.
-// Se hace solo una vez cuando el módulo se carga en el cliente.
+// SOLUCIÓN CRÍTICA: Configuración de íconos GLOBAL fuera del componente
+// Esto asegura que se ejecute ANTES de cualquier renderizado
 if (typeof window !== 'undefined') {
-  // Esta parte SOLO se ejecuta en el cliente
+  // Eliminar el método _getIconUrl que causa problemas con Webpack/Turbopack
   delete (L.Icon.Default.prototype as any)._getIconUrl;
-  
-  // Importaciones dinámicas de las imágenes de los iconos en tiempo de ejecución
-  const iconRetinaUrl = require('leaflet/dist/images/marker-icon-2x.png').default;
-  const iconUrl = require('leaflet/dist/images/marker-icon.png').default;
-  const shadowUrl = require('leaflet/dist/images/marker-shadow.png').default;
-  
+
+  // Usar require para obtener las rutas de las imágenes de forma segura
+  const iconRetinaUrl = require('leaflet/dist/images/marker-icon-2x.png');
+  const iconUrl = require('leaflet/dist/images/marker-icon.png');
+  const shadowUrl = require('leaflet/dist/images/marker-shadow.png');
+
   L.Icon.Default.mergeOptions({
-    iconRetinaUrl,
-    iconUrl,
-    shadowUrl,
+    iconRetinaUrl: iconRetinaUrl.default,
+    iconUrl: iconUrl.default,
+    shadowUrl: shadowUrl.default,
   });
 }
+
 
 export default function Map() {
   const apiKey = process.env.NEXT_PUBLIC_GEOAPIFY_API_KEY;
@@ -32,8 +34,6 @@ export default function Map() {
   const [isMounted, setIsMounted] = useState(false);
   
   useEffect(() => {
-    // Este useEffect ahora solo sirve para evitar el renderizado inicial en el servidor
-    // y asegurarse de que el componente se hidrate correctamente en el cliente.
     setIsMounted(true);
   }, []);
 
@@ -80,7 +80,6 @@ export default function Map() {
         attribution='Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a> | <a href="https://openmaptiles.org/" target="_blank">© OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a> contributors'
         url={geoapifyTileUrl}
       />
-      {/* El marcador usará automáticamente el ícono por defecto que configuramos globalmente */}
       <Marker position={position}>
         <Popup>
           TechFix Solutions <br /> Calle Falsa 123, Springfield.
