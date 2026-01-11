@@ -13,24 +13,27 @@ export default function ContactForm() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+  const isEmailJsConfigured = serviceId && templateId && publicKey;
+
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!formRef.current) return;
 
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-    if (!serviceId || !templateId || !publicKey) {
+    if (!isEmailJsConfigured) {
       toast({
-        title: 'Error de Configuración',
-        description: 'El servicio de correo no está configurado. Por favor, contacta al administrador.',
+        title: 'Servicio no configurado',
+        description:
+          'El servicio de correo no está configurado. Por favor, contacta al administrador.',
         variant: 'destructive',
       });
       return;
     }
-    
+
     setIsSubmitting(true);
 
     emailjs
@@ -49,7 +52,7 @@ export default function ContactForm() {
         (error) => {
           toast({
             title: 'Error',
-            description: 'Hubo un problema al enviar tu mensaje. Por favor, inténtalo de nuevo.',
+            description: `Hubo un problema al enviar tu mensaje: ${error.text}`,
             variant: 'destructive',
           });
           console.error('FAILED...', error.text);
@@ -78,9 +81,14 @@ export default function ContactForm() {
         <Label htmlFor="message">Mensaje</Label>
         <Textarea id="message" name="message" rows={5} required />
       </div>
-      <Button type="submit" disabled={isSubmitting} className="w-full">
+      <Button type="submit" disabled={isSubmitting || !isEmailJsConfigured} className="w-full">
         {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
       </Button>
+      {!isEmailJsConfigured && (
+        <p className="text-xs text-center text-muted-foreground mt-2">
+          El formulario de contacto está deshabilitado.
+        </p>
+      )}
     </form>
   );
 }

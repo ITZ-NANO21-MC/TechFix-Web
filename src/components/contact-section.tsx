@@ -1,6 +1,11 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
 import ContactForm from './contact-form';
-import Map from './map';
+import dynamic from 'next/dynamic';
+
+const Map = dynamic(() => import('./map'), { 
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-muted flex items-center justify-center"><p>Cargando mapa...</p></div>
+});
 
 export default function ContactSection() {
   return (
