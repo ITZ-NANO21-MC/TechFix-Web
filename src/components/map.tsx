@@ -1,34 +1,33 @@
 'use client';
 
+import { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 
-// Arreglo para el icono por defecto de Leaflet que no se muestra correctamente en Next.js
+// Se importan las imágenes directamente
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
-const DefaultIcon = L.icon({
-  iconRetinaUrl: iconRetinaUrl.src,
-  iconUrl: iconUrl.src,
-  shadowUrl: shadowUrl.src,
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
-});
-
-L.Marker.prototype.options.icon = DefaultIcon;
-
-
 export default function Map() {
   const apiKey = process.env.NEXT_PUBLIC_GEOAPIFY_API_KEY;
-  const position: L.LatLngExpression = [34.052235, -118.243683]; // Misma posición
+  const position: L.LatLngExpression = [34.052235, -118.243683];
   const staticMapImage = PlaceHolderImages.find(img => img.id === 'static-map');
 
+  useEffect(() => {
+    // Este código se ejecuta solo en el cliente, después de que el componente se monta.
+    // Esto asegura que L.Marker.prototype está disponible.
+    delete (L.Icon.Default.prototype as any)._getIconUrl;
+
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: iconRetinaUrl.src,
+      iconUrl: iconUrl.src,
+      shadowUrl: shadowUrl.src,
+    });
+  }, []);
 
   if (!apiKey) {
     return (
