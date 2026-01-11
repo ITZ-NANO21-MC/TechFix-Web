@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -16,10 +16,12 @@ export default function Map() {
   const apiKey = process.env.NEXT_PUBLIC_GEOAPIFY_API_KEY;
   const position: L.LatLngExpression = [34.052235, -118.243683];
   const staticMapImage = PlaceHolderImages.find(img => img.id === 'static-map');
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // Este código se ejecuta solo en el cliente, después de que el componente se monta.
-    // Esto asegura que L.Marker.prototype está disponible y previene el error "iconUrl not set".
+    setIsMounted(true);
+    // Este código se ejecuta solo en el cliente.
+    // Reescribe la configuración por defecto del ícono de Leaflet.
     delete (L.Icon.Default.prototype as any)._getIconUrl;
 
     L.Icon.Default.mergeOptions({
@@ -58,11 +60,13 @@ export default function Map() {
         attribution='Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a> | <a href="https://openmaptiles.org/" target="_blank">© OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a> contributors'
         url={geoapifyTileUrl}
       />
-      <Marker position={position}>
-        <Popup>
-          TechFix Solutions <br /> Calle Falsa 123, Springfield.
-        </Popup>
-      </Marker>
+      {isMounted && (
+        <Marker position={position}>
+            <Popup>
+            TechFix Solutions <br /> Calle Falsa 123, Springfield.
+            </Popup>
+        </Marker>
+      )}
     </MapContainer>
   );
 }
