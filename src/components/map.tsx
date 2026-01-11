@@ -50,7 +50,7 @@ export default function Map() {
     );
   }
 
-  const geoapifyTileUrl = `https://maps.geoapify.com/v1/tile/osm-bright-smooth/{z}/{x}/{y}.png?apiKey=${apiKey}`;
+  const geoapifyTileUrl = `https://maps.geoapify.com/v1/tile/carto/{z}/{x}/{y}.png?apiKey=${apiKey}`;
 
   return (
     <MapContainer center={position} zoom={14} scrollWheelZoom={false} className="w-full h-full">
