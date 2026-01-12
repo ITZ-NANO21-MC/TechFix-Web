@@ -8,7 +8,7 @@ import type { Icon as LeafletIcon } from 'leaflet';
 
 export default function LeafletMapComponent() {
   const apiKey = process.env.NEXT_PUBLIC_GEOAPIFY_API_KEY;
-  const position: [number, number] = [34.052235, -118.243683];
+  const position: [number, number] = [11.399651615306901, -69.67147932066929];
   const [icon, setIcon] = useState<LeafletIcon | null>(null);
 
   useEffect(() => {
