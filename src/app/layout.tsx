@@ -5,6 +5,9 @@ import { Toaster } from '@/components/ui/toaster';
 export const metadata: Metadata = {
   title: 'TechFix Solutions - Reparación de Celulares y PC',
   description: 'Expertos en reparación de celulares y computadoras. Venta de accesorios de alta calidad. Soluciones tecnológicas a tu alcance.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
