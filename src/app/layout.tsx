@@ -6,7 +6,21 @@ export const metadata: Metadata = {
   title: 'TechFix Solutions - Reparación de Celulares y PC',
   description: 'Expertos en reparación de celulares y computadoras. Venta de accesorios de alta calidad. Soluciones tecnológicas a tu alcance.',
   icons: {
-    icon: '/favicon.ico',
+    // Ícono para la pestaña del navegador (puede ser .ico o .png)
+    icon: '/favicon.ico', 
+    
+    // Ícono para Apple (iPhone, iPad)
+    apple: '/apple-touch-icon.png', // <-- Deberías crear este archivo en 180x180
+
+    // Otros tamaños para diferentes propósitos (opcional pero recomendado)
+    shortcut: '/favicon-16x16.png', // <-- Íconos PNG de tamaños específicos
+    other: [
+      {
+        rel: 'icon',
+        url: '/android-chrome-192x192.png', // <-- Ícono para Android
+        sizes: '192x192',
+      },
+    ],
   },
 };
 
