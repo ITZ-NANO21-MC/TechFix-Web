@@ -1,5 +1,5 @@
 
-# Proyecto de E-commerce "Nextn"
+# Proyecto de E-commerce "TechFix-Web"
 
 Este es el repositorio para "Nextn", una moderna aplicación de e-commerce construida con Next.js y un conjunto de tecnologías de vanguardia. La aplicación está diseñada para ser rápida, responsiva y fácil de usar, ofreciendo una experiencia de compra fluida.
 
