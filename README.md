@@ -30,8 +30,8 @@ Sigue estos pasos para levantar el entorno de desarrollo local.
 Clona el repositorio e instala las dependencias:
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
-cd nextn
+git clone https://github.com/ITZ-NANO21-MC/TechFix-Web.git
+cd TechFix-Web
 npm install
 ```
 
