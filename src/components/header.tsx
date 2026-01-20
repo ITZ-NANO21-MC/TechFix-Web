@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu } from 'lucide-react';
+import { Menu, Wrench } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle } from '@/components/ui/sheet';
 import { navLinks } from '@/lib/data';
@@ -16,7 +16,7 @@ export default function Header() {
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <img src="/favicon.ico" alt="TechFix Solutions Logo" className="h-6 w-6"/>
+            <Wrench className="h-6 w-6" color="#1c71d8" />
             <span className="hidden font-bold sm:inline-block">TechFix Solutions</span>
           </Link>
           <nav className="flex items-center gap-6 text-sm">
@@ -44,7 +44,7 @@ export default function Header() {
             <SheetContent side="left" className="pr-0">
               <SheetTitle className="sr-only">Menú de navegación móvil</SheetTitle>
               <Link href="/" className="mr-6 flex items-center space-x-2 mb-6">
-                <img src="/favicon.ico" alt="TechFix Solutions Logo" className="h-6 w-6" />
+                <Wrench className="h-6 w-6" color="#1c71d8" />
                 <span className="font-bold">TechFix Solutions</span>
               </Link>
               <nav className="flex flex-col gap-4">

@@ -33,9 +33,9 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-foreground mb-4">Contacto</h3>
             <ul className="space-y-2 text-sm">
-              <li>Calle Falsa 123, Springfield</li>
+              <li>Calle Avenida Ali Primera</li>
               <li>Email: contacto@techfix.com</li>
-              <li>Tel: +1 (234) 567-890</li>
+              <li>Tel: +58 (424) 668-4134</li>
             </ul>
           </div>
 

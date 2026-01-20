@@ -137,8 +137,8 @@ export const accessories: Accessory[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  { name: 'WhatsApp', icon: MessageCircle, url: 'https://wa.me/1234567890' },
-  { name: 'Facebook', icon: Facebook, url: '#' },
-  { name: 'Instagram', icon: Instagram, url: '#' },
-  { name: 'Twitter', icon: Twitter, url: '#' },
+  { name: 'WhatsApp', icon: MessageCircle, url: 'https://wa.me/+584246684134' },
+  { name: 'Facebook', icon: Facebook, url: 'https://www.facebook.com/profile.php?id=61574043867042' },
+  { name: 'Instagram', icon: Instagram, url: 'https://www.instagram.com/synai.ve?igsh=ZGUzMzM3NWJiOQ==' },
+  { name: 'YouTube', icon: Youtube, url: 'https://www.youtube.com/@SYNAI-k2p' },
 ];

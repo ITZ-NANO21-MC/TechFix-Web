@@ -13,7 +13,7 @@ import { socialLinks } from '@/lib/data';
 export default function FloatingButtons() {
   return (
     <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-3">
-      <Link href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+      <Link href="https://wa.me/+584246684134" target="_blank" rel="noopener noreferrer">
         <Button size="icon" className="rounded-full h-14 w-14 bg-green-500 hover:bg-green-600 shadow-lg">
           <MessageCircle className="h-7 w-7" />
           <span className="sr-only">WhatsApp</span>
