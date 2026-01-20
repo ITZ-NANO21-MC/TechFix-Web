@@ -6,7 +6,7 @@ import { Menu, Wrench } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle } from '@/components/ui/sheet';
 import { navLinks } from '@/lib/data';
-import { cn } from '@/lib/utils';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,6 +68,7 @@ export default function Header() {
             {/* Can add a search bar here in the future */}
           </div>
           <nav className="flex items-center">
+            <ThemeToggle />
             <Button asChild>
               <Link href="#contact">Cotizar Ahora</Link>
             </Button>
