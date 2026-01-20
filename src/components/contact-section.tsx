@@ -32,11 +32,11 @@ export default function ContactSection() {
               <div className="space-y-4 text-lg">
                 <div className="flex items-center gap-4">
                   <MapPin className="h-6 w-6 text-primary" />
-                  <span>Calle Falsa 123, Springfield, USA</span>
+                  <span>Avenida Ali Primera, Falcon, Venezuela</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <Phone className="h-6 w-6 text-primary" />
-                  <a href="tel:+1234567890" className="hover:text-primary transition-colors">+1 (234) 567-890</a>
+                  <a href="tel:+584246684134" className="hover:text-primary transition-colors">+58 (424) 668-4134</a>
                 </div>
                 <div className="flex items-center gap-4">
                   <Mail className="h-6 w-6 text-primary" />
